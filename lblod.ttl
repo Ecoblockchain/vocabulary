@@ -6,32 +6,32 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix lblod: <http://decisions.data.vlaanderen.be/ns#> .
+@prefix lbld: <http://decisions.data.vlaanderen.be/ns#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix status: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 @prefix schema: <http://schema.org/> .
 
 <http://decisions.data.vlaanderen.be/ns> a foaf:Document ;
-                                         foaf:primaryTopic decisions:Vocabulary ;
+                                         foaf:primaryTopic lbld:Vocabulary ;
                                          dct:issued "2016-03-14"^^xsd:date ;
                                          dct:modified "2016-05-09"^^xsd:date ;
-                                         dct:hasFormat <https://raw.githubusercontent.com/decisions/vocabulary/master/lblod.ttl> ;
+                                         dct:hasFormat <https://raw.githubusercontent.com/decisions/vocabulary/master/lbld.ttl> ;
                                          cc:license <http://creativecommons.org/licenses/by/3.0/> ;
                                          dct:rights "to do" .
 
-lblod:Ontology a owl:Ontology ;
+lbld:Ontology a owl:Ontology ;
                rdfs:label "Local Decision as Linked Open Data"@en ;
                dct:description "Small vocabulary to describe decisions inspired by DCAT."@en ;
-               vann:preferredNamespacePrefix "lblod" ;
+               vann:preferredNamespacePrefix "lbld" ;
                vann:preferredNamespaceUri "http://decisions.data.vlaanderen.be/ns#" ;
-               rdfs:seeAlso <https://github.com/lblod/vocabulary> ;
+               rdfs:seeAlso <https://github.com/lbld/vocabulary> ;
                dct:creator <http://pieter.pm/#me> .
 
 <http://pieter.pm/#me> foaf:mbox "Pieter.Colpaert@UGent.be" ;
                        foaf:name "Pieter Colpaert" .
 
-#lblod:Collection a rdfs:Class ;
+#lbld:Collection a rdfs:Class ;
 #                 status:term_status "unstable"@en; 
 #                 rdfs:subClassOf dcat:Catalog ;
 #                 rdfs:label "Decision collection"@en ;
@@ -44,11 +44,11 @@ lblod:Ontology a owl:Ontology ;
                                                 <http://lib-thesaurus.un.org/LIB/DHLUNBISThesaurus.nsf/fee3fb01c865ac5d85256cf400648b1f/ed5631efc48f9ff785256aa0005fedd4>,
                                                 <http://ec.europa.eu/eclas/euc11/000004323> .
 
-lblod:decision a rdf:Property ;
+lbld:decision a rdf:Property ;
                status:term_status "unstable"@en ;
-               rdfs:range lblod:Decision .
+               rdfs:range lbld:Decision .
 
-lblod:Decision a rdfs:Class ;
+lbld:Decision a rdfs:Class ;
                rdfs:subClassOf dcat:Distribution ;
 #               rdfs:subClassOf opengov:Motion;
                status:term_status "unstable"@en ;
@@ -56,8 +56,40 @@ lblod:Decision a rdfs:Class ;
                rdfs:comment "A decision is a motion that has passed an official board"@en ;
                rdfs:comment "Een besluit is een agendapunt dat een bepaald goedkeuringsproces doorliep"@nl .
 
-lblod:Article a rdfs:Class ;
+lbld:Article a rdfs:Class ;
               status:term_status "unstable"@en ;
               rdfs:label "Article"@en;
               rdfs:comment "An article is a formalization of a decision"@en .
+
+lbld:legalBackground a rdf:Property ;
+                     status:term_status "unstable"@en ;
+                     rdfs:label "Legal background"@en;
+                     rdfs:comment ""@en .
+
+lbld:responsibleFor a rdf:Property ;
+                      status:term_status "unstable"@en ;
+                      rdfs:label "Responsible for"@en;
+                      rdfs:comment "A linked article to indicate the decision making organisation is responsible for this matter"@en .
+
+lbld:changes a rdf:Property ;
+               status:term_status "unstable"@en ;
+               rdfs:label "Changes"@en;
+               rdfs:comment ""@en .
+
+lbld:replaces a rdf:Property ;
+              status:term_status "unstable"@en ;
+              rdfs:label "Replaces"@en;
+              rdfs:comment ""@en .
+
+lbld:bbcCode a rdf:Property ;
+             status:term_status "unstable"@en ;
+             rdfs:label "BBC Code"@en;
+             rdfs:comment ""@en .
+
+lbld:Motivation a rdfs:Class ;
+                status:term_status "unstable"@en ;
+                rdfs:label "Motivation"@en;
+                rdfs:comment "A motivation for a taken decision"@en .
+
+
 # Verschil tussen wat Juridisch afgedwongen wordt (e.g., aanwezig afwezig, maar in realiteit ook geëxcuseerd (politiek)).
