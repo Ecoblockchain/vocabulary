@@ -50,13 +50,15 @@
       </p>
       <p class="properties">
         <ul class="hlist">
-          <li><a href="">dct:title</a></li>
-          <li><a href="">dct:abstract</a></li>
-          <li><a href="">dct:topic</a></li> - 
-          <li><a href="">dct:type</a></li> - describes the type of the decision. MUST comply to this fixed list: todo.
-          <li><a href="">dct:spatial</a></li> - describes the location the decision affects
-          <li><a href="">dct:temporal</a></li> - describes the timespan the decision affects
-          <li><a href="">lbld:bbcCode</a></li> - a link to a theme in the BBC catalogue of Flanders
+          <li><a href="">dct:title</a> indicates a title</li>
+          <li><a href="">dct:abstract</a> a short abstract of the taken decision</li>
+          <li><a href="">dct:topic</a> todo</li> 
+          <li><a href="">dct:type</a> describes the type of the decision. MUST comply to this fixed list: todo.</li>
+          <li><a href="">dct:spatial</a> describes the location the decision affects</li>
+          <li><a href="">dct:temporal</a> describes the timespan the decision affects</li>
+          <li><a href="">lbld:bbcCode</a> a link to a theme in the BBC catalogue of Flanders</li>
+          <li><a href="">lbld:article</a> a decision has one or more articles</li>
+          <li><a href="">lbld:legalBackground</a> a legal background is a referenced article which contains a former decision that has to be taken into account.</li>
         </ul>
       </p>
 
@@ -65,13 +67,16 @@
       <h2>An article</h2>
       <p class="h2-uri"><a href="http://decisions.data.vlaanderen.be/ns#Decision">http://decisions.data.vlaanderen.be/ns#Article</a></p>
       <p class="definition">
-        An article is a formalization of a Decision: it contains the agreed upon rules of a decision.
+        An article is a formalization of a Decision: it contains the agreed upon rules.
       </p>
       <p class="properties">
         <ul class="hlist">
+          <li><a href="">dct:title</a></li>
+          <li><a href="">dct:description</a></li>
           <li><a href="">dct:spatial</a></li>
           <li><a href="">dct:temporal</a></li>
-          <li><a href="">dct:title</a></li>
+<!--          <li><a href="">dct:type</a></li>-->
+<!--          <li><a href="">lbld:affects</a> provides a link to something it affects</li>-->
         </ul>
       </p>
       
@@ -80,11 +85,12 @@
       <h2>A motivation</h2>
       <p class="h2-uri"><a href="http://decisions.data.vlaanderen.be/ns#Decision">http://decisions.data.vlaanderen.be/ns#Motivation</a></p>
       <p class="definition">
-        A motivation or context for a certain decision.
+        A motivation or context for a certain decision
       </p>
       <p class="properties">
         <ul class="hlist">
-          <li><a href="">dct:description</a></li>
+          <li><a href="">dct:description</a> - a full text description the background</li>
+          <li><a href="">lbld:legalBackground</a> links the motivation to a certain article of a certain different decision</li>
         </ul>
       </p>
       
