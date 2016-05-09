@@ -49,9 +49,15 @@ lblod:decision a rdf:Property ;
                rdfs:range lblod:Decision .
 
 lblod:Decision a rdfs:Class ;
+               rdfs:subClassOf dcat:Distribution ;
+#               rdfs:subClassOf opengov:Motion;
                status:term_status "unstable"@en ;
                rdfs:label "Decision"@en;
                rdfs:comment "A decision is a motion that has passed an official board"@en ;
                rdfs:comment "Een besluit is een agendapunt dat een bepaald goedkeuringsproces doorliep"@nl .
 
+lblod:Article a rdfs:Class ;
+              status:term_status "unstable"@en ;
+              rdfs:label "Article"@en;
+              rdfs:comment "An article is a formalization of a decision"@en .
 # Verschil tussen wat Juridisch afgedwongen wordt (e.g., aanwezig afwezig, maar in realiteit ook geëxcuseerd (politiek)).

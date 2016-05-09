@@ -39,18 +39,63 @@
       <p>
         Only a few URIs are defined within the lbld namespace.
         This schema provides an overview of the to be used URIs when linking the data together.
-        The URIs defined by us can be found at todo.
-      </p>
-      <p class="informative">
-        Only a few URIs are defined within the lbld namespace.
-        This schema provides an overview of the to b eused URIs when linking the data together.
-        The URIs defined by us can be found at todo.
+        The URIs defined by this project can be found at todo.
       </p>
       <h3>A decision</h3>
       <p class="h3-uri"><a href="http://decisions.data.vlaanderen.be/ns#Decision">http://decisions.data.vlaanderen.be/ns#Decision</a></p>
-      <p class="conformative definition">
+      <p class="definition">
         A decision is a case that passed through a process.
       </p>
+      <p class="properties">
+        <ul class="hlist">
+          <li><a href="">dct:spatial</a></li>
+          <li><a href="">dct:temporal</a></li>
+          <li><a href="">dct:title</a></li>
+          <li><a href="">dct:abstract</a></li>
+          <li><a href="">dct:topic</a></li>
+          <li><a href="">dct:type</a></li>
+          <li><a href="">lbld:bbcCode</a></li>
+        </ul>
+      </p>
+      <h3>An article</h3>
+      <p class="h3-uri"><a href="http://decisions.data.vlaanderen.be/ns#Decision">http://decisions.data.vlaanderen.be/ns#Article</a></p>
+      <p class="definition">
+        An article is a formalization of a Decision: it contains the agreed upon rules of a decision.
+      </p>
+      <p class="properties">
+        <ul class="hlist">
+          <li><a href="">dct:spatial</a></li>
+          <li><a href="">dct:temporal</a></li>
+          <li><a href="">dct:title</a></li>
+        </ul>
+      </p>
+      
+      <h3>A motivation</h3>
+      <p class="h3-uri"><a href="http://decisions.data.vlaanderen.be/ns#Decision">http://decisions.data.vlaanderen.be/ns#Motivation</a></p>
+      <p class="definition">
+        A motivation contains why a certain decision was made.
+      </p>
+      <p class="properties">
+        <ul class="hlist">
+          <li><a href="">dct:spatial</a></li>
+          <li><a href="">dct:temporal</a></li>
+          <li><a href="">dct:title</a></li>
+        </ul>
+      </p>
+      
+      <h3>A distribution</h3>
+      <p class="h3-uri"><a href="#Distribution">dcat:Distribution</a></p>
+      <p>
+        A dcat:Distribution can be linked to a Decision in two ways: to provide a way to describe how a document containing the decision can be downloaded, using the predicate dcat:distribution. 
+      </p>
+
+      <h3>Describing vote events</h3>
+      <p>For describing vote events, we refer to the <a href="http://www.popoloproject.com/specs/motion.html">opengov specification</a></p>
+    </section>
+    
+    <section>
+      <h2>Definitions of the URIs in the context of LBLOD</h2>
+      <h3></h3>
     </section>
   </body>
 </html>
