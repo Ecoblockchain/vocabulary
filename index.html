@@ -41,6 +41,11 @@
         This schema provides an overview of the to be used URIs when linking the data together.
         The URIs defined by this project can be found at todo.
       </p>
+      <h3>User story</h3>
+      <p>
+        When a certain board within a local government has voted a decision, an lbld:Decision is created.
+        <i>todo</i>
+      </p>
     </section>
     <section>
       <h2>A decision</h2>
@@ -59,9 +64,11 @@
           <li><a href="">lbld:bbcCode</a> a link to a theme in the BBC catalogue of Flanders</li>
           <li><a href="">lbld:article</a> a decision has one or more articles</li>
           <li><a href="">lbld:legalBackground</a> a legal background is a referenced article which contains a former decision that has to be taken into account.</li>
+          <li><a href="">lbld:responsibleFor</a> "responsible for" links to an article that says that the party </li>
+          <li><a href="">lbld:changes</a> changes a previously defined article</li>
+          <li><a href="">lbld:replaces</a> replaces an earlier article</li>
         </ul>
       </p>
-
     </section>
     <section>
       <h2>An article</h2>
@@ -89,7 +96,7 @@
       </p>
       <p class="properties">
         <ul class="hlist">
-          <li><a href="">dct:description</a> - a full text description the background</li>
+          <li><a href="">dct:description</a> a full text description the background</li>
           <li><a href="">lbld:legalBackground</a> links the motivation to a certain article of a certain different decision</li>
         </ul>
       </p>
