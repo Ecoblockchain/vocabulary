@@ -1,0 +1,57 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix lblod: <http://decisions.data.vlaanderen.be/ns#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix status: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix schema: <http://schema.org/> .
+
+<http://decisions.data.vlaanderen.be/ns> a foaf:Document ;
+                                         foaf:primaryTopic decisions:Vocabulary ;
+                                         dct:issued "2016-03-14"^^xsd:date ;
+                                         dct:modified "2016-05-09"^^xsd:date ;
+                                         dct:hasFormat <https://raw.githubusercontent.com/decisions/vocabulary/master/lblod.ttl> ;
+                                         cc:license <http://creativecommons.org/licenses/by/3.0/> ;
+                                         dct:rights "to do" .
+
+lblod:Ontology a owl:Ontology ;
+               rdfs:label "Local Decision as Linked Open Data"@en ;
+               dct:description "Small vocabulary to describe decisions inspired by DCAT."@en ;
+               vann:preferredNamespacePrefix "lblod" ;
+               vann:preferredNamespaceUri "http://decisions.data.vlaanderen.be/ns#" ;
+               rdfs:seeAlso <https://github.com/lblod/vocabulary> ;
+               dct:creator <http://pieter.pm/#me> .
+
+<http://pieter.pm/#me> foaf:mbox "Pieter.Colpaert@UGent.be" ;
+                       foaf:name "Pieter Colpaert" .
+
+#lblod:Collection a rdfs:Class ;
+#                 status:term_status "unstable"@en; 
+#                 rdfs:subClassOf dcat:Catalog ;
+#                 rdfs:label "Decision collection"@en ;
+#                 rdfs:comment "A collection of decisions"@en ;
+#                 dcat:theme <http://eurovoc.europa.eu/2629> .
+
+<http://eurovoc.europa.eu/2629> rdfs:label "decision-making"@en ;
+                                skos:related <http://eurovoc.europa.eu/2580> ;
+                                skos:exactMatch <http://www.eionet.europa.eu/gemet/concept/2009>,
+                                                <http://lib-thesaurus.un.org/LIB/DHLUNBISThesaurus.nsf/fee3fb01c865ac5d85256cf400648b1f/ed5631efc48f9ff785256aa0005fedd4>,
+                                                <http://ec.europa.eu/eclas/euc11/000004323> .
+
+lblod:decision a rdf:Property ;
+               status:term_status "unstable"@en ;
+               rdfs:range lblod:Decision .
+
+lblod:Decision a rdfs:Class ;
+               status:term_status "unstable"@en ;
+               rdfs:label "Decision"@en;
+               rdfs:comment "A decision is a motion that has passed an official board"@en ;
+               rdfs:comment "Een besluit is een agendapunt dat een bepaald goedkeuringsproces doorliep"@nl .
+
+# Verschil tussen wat Juridisch afgedwongen wordt (e.g., aanwezig afwezig, maar in realiteit ook geëxcuseerd (politiek)).
