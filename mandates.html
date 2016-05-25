@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset='utf-8'>
-    <title>Local Decisions as Linked Data in Flanders</title>
+    <title>Mandates in local governments in Flanders</title>
     <script src='//www.w3.org/Tools/respec/respec-w3c-common' async class='remove'></script>
     <script class='remove'>
       var respecConfig = {
@@ -13,8 +13,8 @@
       email: "pieter.colpaert@ugent.be"
       }],
       processVersion: 2016,
-      edDraftURI: "https://github.com/lblod/vocabulary",
-      shortName: "lblod",
+      edDraftURI: "https://github.com/lblod/vocabulary/mandates.html",
+      shortName: "mandates",
       };
     </script>
   </head>
@@ -30,11 +30,27 @@
       </p>
     </section>
     <section>
-      We have two specifications:
-      <ul>
-        <li><a href="lbld.html">The metadata specification LBLD to describe local decisions as linked data</a></li>
-        <li><a href="mandates.html">The OSLO² core mandates specification to describe mandates of officials in a local government</a></li>
-      </ul>
+      <h2>At a glance</h2>
+      <p><img src="glance.png" alt="the lbld vocabulary for metadata"></img></p>
+      <p class="caption">The OSLO² core mandates vocabulary</p>
+    </section>
+    <section class="informative">
+      <h2>The Mandates schema</h2>
+      <p>
+        Only a few URIs are defined within the mandates namespace.
+        This schema provides an overview of the to be used URIs when linking the data together.
+      </p>
+      <h3>User story</h3>
+      <p>
+        
+      </p>
+      <pre>
+        @prefix dcat: &lt;http://www.w3.org/ns/dcat#&gt; .
+        @prefix dct: &lt;http://purl.org/dc/terms/&gt; .
+        @prefix mandates: &lt;http://mandaten.data.vlaanderen.be/ns#&gt; .
+        @prefix schema: &lt;http://schema.org/&gt; .
+        
+      </pre>
     </section>
   </body>
 </html>

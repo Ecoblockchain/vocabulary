@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Local Decisions as Linked Data in Flanders</title>
+    <script src='//www.w3.org/Tools/respec/respec-w3c-common' async class='remove'></script>
+    <script class='remove'>
+      var respecConfig = {
+      specStatus: "unofficial",
+      editors: [{
+      "@id":"http://pieter.pm/#me",
+      name: "Pieter Colpaert",
+      email: "pieter.colpaert@ugent.be"
+      }],
+      processVersion: 2016,
+      edDraftURI: "https://github.com/lblod/vocabulary",
+      shortName: "lblod",
+      };
+    </script>
+  </head>
+  <body>
+    <section id='abstract'>
+      <p>
+        Linked Decisions as Linked Data (lblod) is a project for an interoperable ecosystem of local decisions. A project in 2016 carried out by <a href="http://iminds.be" target="_blank">iMinds</a> created a proof of concept in co-creation with local authorities in Flanders, the regional government of Flanders, and different service providers. The result of the proof of concept contain, but are not limited to, this vocabulary, a proof of concept of a Linked Data authoring environment, a server harvesting local decisions using <a href="http://thedatatank.com" target="_blank">The DataTank</a>, a search interface through the harvested data and a persistent URI creator.
+      </p>
+    </section>
+    <section id='sotd'>
+      <p>
+        This document is part of a proof of concept and will not be under active development after June 2016. It is up to future projects to extend the results of this proof of concept into a maintained vocabulary.
+      </p>
+    </section>
+    <section>
+      <h2>At a glance</h2>
+      <p><img src="glance.png" alt="the lbld vocabulary for metadata"></img></p>
+      <p class="caption">The LBLD vocabulary: metadata for local decisions</p>
+    </section>
+    <section class="informative">
+      <h2>The LBLOD schema</h2>
+      <p>
+        Only a few URIs are defined within the lbld namespace.
+        This schema provides an overview of the to be used URIs when linking the data together.
+      </p>
+      <h3>User story</h3>
+      <p>
+        When a certain board within a local government has voted a decision, an <a href="#decision">lbld:Decision</a> is created.
+        The <a href="#decision">lbld:Decision</a> is given a URI from an authority that provides persistent and unique identifiers.
+        This <a href="#decision">lbld:Decision</a> is given a certain <a href="#motivation">lbld:Motivation</a>. This motivation contains a dct:description, but can also contain links to other articles, attachments, and so forth.
+        Also, a certain lbld:legalBackground is given, which is an article from a different decision that provides legal background for this decision.
+        Finally, using the predicate lbld:article, articles can be linked which contain the actual contents of the decision.
+      </p>
+      <p>
+        The <a href="#decision">lbld:Decision</a> is also linked to <a href="#distribution">distributions</a>. These distributions can be an attachment, linked using the lbld:attachment predicate, or can be a document in which more information about the decision can be found. The link is going to a dcat:Distribution, which means you may have to authenticate to see the actual file.
+      </p>
+      <p>
+        Next, we can also link a Decision with its vote event which is taken at a certain organisational structure. For this, we refer to the popolo ontology.
+      </p>
+      <pre>
+        @prefix dcat: &lt;http://www.w3.org/ns/dcat#&gt; .
+        @prefix dct: &lt;http://purl.org/dc/terms/&gt; .
+        @prefix lbld: &lt;http://decisions.data.vlaanderen.be/ns#&gt; .
+        @prefix schema: &lt;http://schema.org/&gt; .
+        &lt;http://bertem.burger.meetingmobile.net/Pages/inhoudNotulen.aspx?id=ef3107fb-7f7a-4d1c-a787-54f301d2ca1c#74b95608-9161-4d61-82a6-10e7ddc0575e&gt; a lbld:Article;
+        dct:description &quot;Eedaflegging van Griet Verhenneman (sp.a) als gemeenteraadslid op 2 januari 2013.&quot; .
+        &lt;http://lblod.github.io/examples/Bertem.html##79b58012-5e56-4f0d-a264-8401dc16f0d4&gt;
+        a lbld:Decision; dcat:distribution &lt;http://lblod.github.io/examples/Bertem.html&gt; .
+        &lt;http://lblod.github.io/examples/Bertem.html#0a3675b8-9f8e-4273-b4cc-d42d5dfe8eda&gt;
+        a lbld:Decision; dcat:distribution &lt;http://lblod.github.io/examples/Bertem.html&gt; .
+      </pre>
+    </section>
+    <section id="decision">
+      <h2>A decision</h2>
+      <p class="h2-uri"><a href="http://decisions.data.vlaanderen.be/ns#Decision">http://decisions.data.vlaanderen.be/ns#Decision</a></p>
+      <p class="definition">
+        A decision is a case that passed through a process.
+      </p>
+      <p class="properties">
+        <ul class="hlist">
+          <li><a href="">dct:title</a> indicates a title</li>
+          <li><a href="">dct:abstract</a> a short abstract of the taken decision</li>
+          <li><a href="">dct:topic</a> todo</li> 
+          <li><a href="">dct:type</a> describes the type of the decision. MUST comply to this fixed list: todo.</li>
+          <li><a href="">dct:spatial</a> describes the location the decision affects</li>
+          <li><a href="">dct:temporal</a> describes the timespan the decision affects</li>
+          <li><a href="">lbld:bbcCode</a> a link to a theme in the BBC catalogue of Flanders</li>
+          <li><a href="">lbld:article</a> a decision has one or more articles</li>
+          <li><a href="">lbld:legalBackground</a> a legal background is a referenced article which contains a former decision that has to be taken into account.</li>
+          <li><a href="">lbld:attachment</a> a link to an interesting document, which has a way to be downloaded (range is a dcat:Distribution)</li>
+          <li><a href="">dcat:distribution</a> a document that contains information about this specific decision</li>
+        </ul>
+      </p>
+    </section>
+    <section id="article">
+      <h2>An article</h2>
+      <p class="h2-uri"><a href="http://decisions.data.vlaanderen.be/ns#Decision">http://decisions.data.vlaanderen.be/ns#Article</a></p>
+      <p class="definition">
+        An article is a formalization of a Decision: it contains the agreed upon rules.
+      </p>
+      <p class="properties">
+        <ul class="hlist">
+          <li><a href="">dct:title</a></li>
+          <li><a href="">dct:description</a></li>
+          <li><a href="">dct:spatial</a></li>
+          <li><a href="">dct:temporal</a></li>
+          <li><a href="">lbld:articleDeclaringResponibility</a> "responsible for" links to an article that says that the party </li>
+          <li><a href="">lbld:changesArticle</a> changes a previously defined article</li>
+          <li><a href="">lbld:replacesArticle</a> replaces an earlier article</li>
+<!--          <li><a href="">dct:type</a></li>-->
+<!--          <li><a href="">lbld:affects</a> provides a link to something it affects</li>-->
+        </ul>
+      </p>
+      
+    </section>
+    <section id="motivation">
+      <h2>A motivation</h2>
+      <p class="h2-uri"><a href="http://decisions.data.vlaanderen.be/ns#Motivation">http://decisions.data.vlaanderen.be/ns#Motivation</a></p>
+      <p class="definition">
+        A motivation or context for a certain decision
+      </p>
+      <p class="properties">
+        <ul class="hlist">
+          <li><a href="">dct:description</a> a full text description the background</li>
+          <li><a href="">lbld:legalBackground</a> links the motivation to a certain article of a certain different decision</li>
+        </ul>
+      </p>
+    </section>
+    <section id="distribution">
+      <h2>A distribution</h2>
+      <p class="h2-uri"><a href="#Distribution">dcat:Distribution</a></p>
+      <p>
+        A dcat:Distribution can be linked to a Decision in two ways: to provide a way to describe how a document containing the decision can be downloaded, using the predicate dcat:distribution.
+        Another way is to add an attachment to the decision using the predicate <a href="">lbld:attachment</a>.
+      </p>
+    </section>
+    <section id="vote-events">
+      <h2>Describing vote events</h2>
+      <p>
+        For describing vote events, we refer to the <a href="http://www.popoloproject.com/specs/motion.html">opengov specification</a>.
+        A vote event has a link to the organization body.
+      </p>
+    </section>
+  </body>
+</html>
