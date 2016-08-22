@@ -27,6 +27,7 @@
     <section id='sotd'>
       <p>
         This document is part of a proof of concept and will not be under active development after June 2016. It is up to future projects to extend the results of this proof of concept into a maintained vocabulary.
+        Furthermore, the URIs are not dereferencable at this point. At the time of writing, the Flemish URI strategy 2.0 was not yet voted, yet we took into account a draft from June 2016 when creating the URIs.
       </p>
     </section>
     <section>
@@ -40,17 +41,16 @@
         Only a few URIs are defined within the mandates namespace.
         This schema provides an overview of the to be used URIs when linking the data together.
       </p>
-      <h3>User story</h3>
+      <h3>Explanation</h3>
       <p>
-        
+        A Mandate belongs to a Person and vice versa.
+        It declares the period of time a person has a certain MandateType in a certain foaf:Organization.
+        Both foaf:Organization or schema:Organization may be used to describe the organization.
+        The organization, for instance a local council, also defines a mandate taxonomy (via the property mandatesTaxonomy).
+        This mandate taxonomy is a skos:ConceptScheme, with in the scheme skos:Concepts such as a Mayor, Chair Man, Secretary, etc.
+        The element from this mandate taxonomy is linked to a Mandate through the mandateType property.
+        A mandate is to be created by a lbld:Decision, which can be linked back to the decision through the prov:wasGeneratedBy property from the <a href="https://www.w3.org/TR/prov-o/" target="_blank">Prov-O ontology</a>.
       </p>
-      <pre>
-        @prefix dcat: &lt;http://www.w3.org/ns/dcat#&gt; .
-        @prefix dct: &lt;http://purl.org/dc/terms/&gt; .
-        @prefix mandates: &lt;http://mandaten.data.vlaanderen.be/ns#&gt; .
-        @prefix schema: &lt;http://schema.org/&gt; .
-        
-      </pre>
     </section>
   </body>
 </html>
