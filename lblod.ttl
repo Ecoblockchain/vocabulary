@@ -15,8 +15,8 @@
 <http://decisions.data.vlaanderen.be/ns> a foaf:Document ;
                                          foaf:primaryTopic lbld:Vocabulary ;
                                          dct:issued "2016-03-14"^^xsd:date ;
-                                         dct:modified "2016-05-09"^^xsd:date ;
-                                         dct:hasFormat <https://raw.githubusercontent.com/decisions/vocabulary/master/lbld.ttl> ;
+                                         dct:modified "2016-08-24"^^xsd:date ;
+                                         dct:hasFormat <http://lblod.github.io/vocabulary/lblod.ttl> ;
                                          cc:license <http://creativecommons.org/licenses/by/3.0/> ;
                                          dct:rights "to do" .
 
